@@ -1,16 +1,13 @@
 use v6.d;
 use Red:api<2>;
-use Models::User;
-
-unit module Models::Post;
 
 model PostTag {...}
 
-model Post is table<posts> is rw is export {
+model Post is table<posts> is rw {
   has Int      $.id        is serial;
-  has          $!author-id is referencing( *.id, :model<User> );
+  has          $!author-id is referencing( *.id, :model<User>, :require<Models::User> );
   has Str      $.body      is column;
-  has          $.author    is relationship( *.author-id, :model<User> );
+  has          $.author    is relationship( *.author-id, :model<User>, :require<Models::User> );
   has PostTag  @.post-tags is relationship{ .post-id };
   has Bool     $.deleted   is column = False;
   has DateTime $.created   is column .= now;
@@ -25,9 +22,9 @@ model Tag is table<tags> is export {
   method posts { @.post-tags>>.post }
 }
 
-model PostTag is table<post_tag> is export {
-  has UInt $.post-id is column{ :id, :references{ .id }, :model-name<Post> }
-  has Str  $.tag-id  is column{ :id, :references{ .id }, :model-name<Tag> }
+model PostTag is table<post_tag> {
+  has UInt $.post-id is referencing( *.id , :model(Post) ) is id;
+  has Str  $.tag-id  is referencing( *.name, :model(Tag) ) is id;
   has Post $.post    is relationship{ .post-id };
   has Tag  $.tag     is relationship{ .tag-id };
 }
