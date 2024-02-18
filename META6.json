@@ -1,0 +1,29 @@
+{
+  "auth": "Write me!",
+  "provides": {
+    "Routes": "lib/Routes.rakumod",
+    "Models::User": "lib/Models/User.rakumod",
+    "Models::Post": "lib/Models/Post.rakumod"
+  },
+  "version": "0.0.1",
+  "description": "Write me!",
+  "tags": [
+    ""
+  ],
+  "resources": [
+  ],
+  "depends": [
+    "Cro::HTTP"
+  ],
+  "name": "begumpura",
+  "source-url": "Write me!",
+  "license": "Write me!",
+  "meta-version": "0",
+  "support": {
+    "source": "Write me!"
+  },
+  "raku": null,
+  "authors": [
+    ""
+  ]
+}
