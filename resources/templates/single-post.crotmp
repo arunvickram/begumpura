@@ -1,0 +1,8 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('Post')>
+  <article>
+    <header><.post.title></header>
+    <.post.body>
+  </article>
+</|>

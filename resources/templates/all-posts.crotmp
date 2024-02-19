@@ -3,7 +3,11 @@
 <|layout('All Posts')>
   <@posts>
     <article>
-      <header><.title></header>
+      <header>
+        <a href="/posts/<.id>">
+          <.title>
+        </a>
+      </header>
       <.body>
     </article>
   </@>

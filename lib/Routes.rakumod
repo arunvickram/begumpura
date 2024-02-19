@@ -13,13 +13,19 @@ sub post-routes() {
             template 'new-post.crotmp';
         }
 
+        get -> Int $id {
+            my $post = Post.^load(:$id);
+
+            template 'single-post.crotmp', { :$post }
+        }
+
         post -> {
             request-body -> (:$title, :$body) {
-                my Post $post = Post.new(:$title, :$body);
-                say "Post title: $title";
-                say "Post body: $body";
+                my Post $post = Post.^create(:$title, :$body);
 
-                Post.^save;
+                my $new-post-location = "/posts/{$post.id}";
+                header 'HX-Location', $new-post-location;
+                created $new-post-location, 'text/html', '<h1>Post created</h1>';
             }
         }
     }
