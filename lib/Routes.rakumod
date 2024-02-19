@@ -15,9 +15,11 @@ sub post-routes() {
 
         post -> {
             request-body -> (:$title, :$body) {
-                my Post $post = Post.^create(:$title, :$body);
+                my Post $post = Post.new(:$title, :$body);
                 say "Post title: $title";
                 say "Post body: $body";
+
+                Post.^save;
             }
         }
     }
