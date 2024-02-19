@@ -1,0 +1,30 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('New Blog Post')>
+  <main>
+    <h1>New Blog Post</h1>
+
+    <form 
+      hx-post="/posts"
+    >
+      <fieldset>
+        <label>
+          Title
+          <input
+            name="title"
+            placeholder="My new Blog Title"
+          />
+        </label>
+        <label>
+          Body
+          <textarea
+            name="body"
+            placeholder="The next thing"
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <button type="submit">New Post</button>
+    </form>
+  </main>
+</|>

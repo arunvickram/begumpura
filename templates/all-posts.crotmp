@@ -1,0 +1,10 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('All Posts')>
+  <@posts>
+    <article>
+      <header><.title></header>
+      <.body>
+    </article>
+  </@>
+</|>

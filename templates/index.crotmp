@@ -1,0 +1,30 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('Home')>
+  <main>
+    <form>
+      <fieldset>
+        <label>
+          Title
+          <input
+            name="title"
+            placeholder="My new Blog Title"
+          />
+        </label>
+        <label>
+          Body
+          <textarea
+            name="body"
+            placeholder="The next thing"
+          >
+          </textarea>
+        </label>
+      </fieldset>
+
+      <input
+        type="submit"
+        value="New Post"
+      />
+    </form>
+  </main>
+</|>

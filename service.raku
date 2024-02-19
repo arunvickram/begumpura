@@ -5,12 +5,12 @@ use Models::User;
 use Models::Post;
 use Routes;
 
-my $*RED-DB = database("SQLite");
+red-defaults default => database("SQLite", :database<test.sqlite>);
 
 User.^create-table:    :if-not-exists;
 Post.^create-table:    :if-not-exists;
-Tag.^create-table:     :if-not-exists;
-PostTag.^create-table: :if-not-exists;
+# Tag.^create-table:     :if-not-exists;
+# PostTag.^create-table: :if-not-exists;
 
 my Cro::Service $http = Cro::HTTP::Server.new(
     http => <1.1>,
