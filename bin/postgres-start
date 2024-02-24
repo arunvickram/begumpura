@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+echo "Starting database" \
+  && pg_ctl -D tmp/postgres/data -l tmp/postgres.log start

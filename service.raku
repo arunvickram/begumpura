@@ -6,9 +6,11 @@ use Models::Post;
 use Routes;
 
 red-defaults default => database("SQLite", :database<test.sqlite>);
+# red-defaults default => database("Pg", :host<localhost>, :database<begumpura_db>)
 
-User.^create-table:    :if-not-exists;
-Post.^create-table:    :if-not-exists;
+User.^create-table:        :if-not-exists;
+UserSession.^create-table: :if-not-exists;
+Post.^create-table:        :if-not-exists;
 # Tag.^create-table:     :if-not-exists;
 # PostTag.^create-table: :if-not-exists;
 

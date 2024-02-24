@@ -1,0 +1,13 @@
+{
+  "name": "begumpura",
+  "scripts": {
+    "tailwind": "tailwindcss -i resources/css/input.css -o resources/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "flowbite": "^2.3.0"
+  }
+}

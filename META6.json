@@ -18,7 +18,9 @@
   "provides": {
     "Models::Post": "lib/Models/Post.rakumod",
     "Models::User": "lib/Models/User.rakumod",
-    "Routes": "lib/Routes.rakumod"
+    "Routes": "lib/Routes.rakumod",
+    "Routes::Post": "lib/Routes/Post.rakumod",
+    "Routes::User": "lib/Routes/User.rakumod"
   },
   "raku": null,
   "resources": [
