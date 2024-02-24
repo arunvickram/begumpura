@@ -1,0 +1,40 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('Login')>
+  <main>
+    <h1>Sign Up</h1>
+    <form 
+      action="/users/register"
+      method="post"
+    >
+      <fieldset>
+        <label>
+          Email
+          <input
+            required
+            type="email" 
+            name="email" 
+            placeholder="Email" 
+            aria-label="Email" 
+            hx-post="/users/register/validate"
+            hx-trigger="change"
+            hx-target="closest fieldset"
+            hx-swap="outerHTML"
+          />
+        </label>
+        <label>
+          Password
+          <input 
+            required
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            aria-label="Password" 
+          />
+        </label>
+      </fieldset>
+      
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>
+</|>

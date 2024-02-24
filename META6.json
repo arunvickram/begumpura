@@ -6,7 +6,10 @@
   "build-depends": [
   ],
   "depends": [
-    "Cro::HTTP"
+    "Cro::HTTP",
+    "Cro::WebApp",
+    "Red",
+    "Crypt::Argon2"
   ],
   "description": "Write me!",
   "license": "Write me!",
@@ -19,7 +22,9 @@
   },
   "raku": null,
   "resources": [
-    "resources/"
+    "css/**/*",
+    "js/**/*",
+    "templates/**/*"
   ],
   "source-url": "Write me!",
   "support": {

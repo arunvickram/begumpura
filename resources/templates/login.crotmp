@@ -1,0 +1,35 @@
+<:use 'resources/templates/layout.crotmp'>
+
+<|layout('Login')>
+  <main>
+    <form 
+      action="/users/session"
+      method="post"
+    >
+      <h1>Log In</h1>
+      
+      <fieldset>
+        <label>
+          Email
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Email" 
+            aria-label="Email" 
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            aria-label="Password" 
+          />
+        </label>
+      </fieldset>
+
+      <button type="submit">Login</button>
+    </form>
+  </main>
+</|>
