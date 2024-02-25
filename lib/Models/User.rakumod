@@ -10,8 +10,8 @@ model User is table<users> is export {
   has Int  $.id              is serial;
   has Str  $.email           is column{ :unique, :type<text> };
   has Str  $.hashed-password is column{ :type<text> };
-  has Bool $.is-editor       is column;
-  has      @.posts           is relationship( *.author-id, :model<Post>, :require<Model::Post> );
+  has Bool $.is-editor       is column = False;
+  has      @.posts           is relationship( *.author-id, :model<Post>, :require<Models::Post> );
 
   # method active-posts { @!posts.grep: not *.deleted }
   method is-correct-password(Str $password --> Bool) { argon2-verify($.hashed-password, $password) }

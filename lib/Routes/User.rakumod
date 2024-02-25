@@ -17,7 +17,7 @@ sub user-routes() is export {
             template 'templates/users/login.crotmp';
         }
 
-        post -> 'register', 'validate' {
+        post -> 'register' {
             request-body -> %data (Str() :$email, Str() :$password, Str() :$confirm-password, *%) {
                 %( :%data )
                     ==> validate(
@@ -53,23 +53,23 @@ sub user-routes() is export {
                     );
                 }
 
-                template 'templates/users/signup_form_response.crotmp', { :%form-data };
-            }
-        }
+                if %data<commit> {
+                    my $hashed-password = argon2-hash $password;
+                    my $user = User.^create(:$email, :$hashed-password);
 
-        post -> 'register' {
-            request-body -> (:$email, :$password) {
-                my $hashed-password = argon2-hash $password;
-                my $user = User.^create(:$email, :$hashed-password);
-
-                header 'HX-Location', '/users/login';
-                created '/users/login';
+                    header 'HX-Location', '/users/login';
+                    created '/users/login';
+                } else {
+                    template 'templates/users/signup_form_response.crotmp', { :%form-data };
+                }
             }
         }
 
         post -> UserSession $session, 'login' {
             request-body -> (Str() :$email, Str() :$password, *%) {
                 given User.^load(:$email) {
+                    say "got here";
+                    
                     if .?is-correct-password($password) {
                         $session.user = $_;
                         $session.^save;
