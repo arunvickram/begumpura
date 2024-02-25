@@ -1,4 +1,4 @@
-<:sub signup-form>
+<:sub signup-form($form-data)>
   <form
     class="space-y-4 md:space-y-6"
     action="/user/register"
@@ -12,10 +12,42 @@
         type="email"
         name="email"
         id="email"
-        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
         placeholder="name@company.com"
+        hx-post="/users/register/validate"
+        hx-trigger="change"
+        hx-target="closest form"
+        hx-swap="outerHTML"
         required=""
+
+        <?$form-data.data.email>
+          value="<$form-data.data.email>"
+        </?>
+        <!>
+          value=""
+        </!>
+
+        <?$form-data.validations.email.errors>
+          class="bg-red-50 border border-red-300 text-red-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-red-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!?$form-data.validations.email.success>
+          class="bg-green-50 border border-green-300 text-green-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-green-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!>
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </!>
       >
+
+      <?$form-data.validations.email.errors p 
+        class="mt-2 text-sm text-red-600 dark:text-red-500"
+      >
+        <span class="font-medium">Error! </span><$form-data.validations.email.errors.first>
+      </?>
+      <!?$form-data.validations.email.success p 
+        class="mt-2 text-sm text-green-600 dark:text-green-500"
+      >
+        <$form-data.validations.email.success>
+      </?>
+      <!></!>
     </div>
     <div>
       <label
@@ -29,9 +61,40 @@
         name="password"
         id="password"
         placeholder="••••••••"
-        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
-        required=""
+        hx-post="/users/register/validate"
+        hx-trigger="change"
+        hx-target="closest form"
+        hx-swap="outerHTML"
+        required
+
+        <?$form-data.data.password>
+          value="<$form-data.data.password>"
+        </?>
+        <!>
+          value=""
+        </!>
+
+        <?$form-data.validations.password.errors>
+          class="bg-red-50 border border-red-300 text-red-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-red-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!?$form-data.validations.password.success>
+          class="bg-green-50 border border-green-300 text-green-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-green-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!>
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </!>
+      />
+      <?$form-data.validations.password.errors p 
+        class="mt-2 text-sm text-red-600 dark:text-red-500"
       >
+        <span class="font-medium">Error! </span><$form-data.validations.password.errors.first>
+      </?>
+      <!?$form-data.validations.password.success p 
+        class="mt-2 text-sm text-green-600 dark:text-green-500"
+      >
+        <$form-data.validations.password.success>
+      </?>
+      <!></!>
     </div>
     <div>
       <label
@@ -41,15 +104,48 @@
         Confirm password
       </label>
       <input
-        type="confirm-password"
+        type="password"
         name="confirm-password"
         id="confirm-password"
         placeholder="••••••••"
-        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
-        required=""
+        hx-post="/users/register/validate"
+        hx-trigger="change"
+        hx-target="closest form"
+        hx-swap="outerHTML"
+
+        <?$form-data.data.confirm-password>
+          value="<$form-data.data.confirm-password>"
+        </?>
+        <!>
+          value=""
+        </!>
+
+        <?$form-data.validations.confirm-password.errors>
+          class="bg-red-50 border border-red-300 text-red-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-red-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!?$form-data.validations.confirm-password.success>
+          class="bg-green-50 border border-green-300 text-green-700 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-green-50 dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </?>
+        <!>
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
+        </!>
+
+        required
+      />
+
+      <?$form-data.validations.confirm-password.errors p 
+        class="mt-2 text-sm text-red-600 dark:text-red-500"
       >
+        <span class="font-medium">Error! </span><$form-data.validations.confirm-password.errors.first>
+      </?>
+      <!?$form-data.validations.confirm-password.success p 
+        class="mt-2 text-sm text-green-600 dark:text-green-500"
+      >
+        <$form-data.validations.confirm-password.success>
+      </?>
+      <!></!>
     </div>
-    <div class="flex items-start">
+    <!--<div class="flex items-start">
       <div class="flex items-center h-5">
         <input
           id="terms"
@@ -68,7 +164,7 @@
             href="#"
           >Terms and Conditions</a></label>
       </div>
-    </div>
+    </div>-->
     <button
       type="submit"
       class="w-full text-white bg-violet-600 hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"

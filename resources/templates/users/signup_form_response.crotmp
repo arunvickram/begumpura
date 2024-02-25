@@ -1,2 +1,2 @@
 <:use 'resources/templates/users/signup_form.crotmp'>
-<&signup-form>
+<&signup-form(.form-data)>

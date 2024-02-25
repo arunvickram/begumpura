@@ -5,11 +5,12 @@ use Models::Post;
 use Models::User;
 use Crypt::Argon2;
 use Email::Valid;
+use Utils; 
 
 sub user-routes() is export {
     route {
         get -> 'register' {
-            template 'templates/users/signup.crotmp';
+            template 'templates/users/signup.crotmp', { form-data => %() };
         }
 
         get -> 'login' {
@@ -17,25 +18,42 @@ sub user-routes() is export {
         }
 
         post -> 'register', 'validate' {
-            request-body -> (Str() :$email, Str() :$password, *%) {
-                # my $email-validator = Email::Valid.new(:simple);
-
-                # my %validation = email => %(), password => %();
-
-                # ## validate email
-                # %validation<email> ||= do unless $email-validator.validate($email) {
-                #     %{ message => 'Invalid email format', invalid => 'true' }
-                # };
-
-                # my $user = User.^load(:$email);
-                # %validation<email> ||= do if ?$user {
-                #     %{ message => 'Email already taken', invalid => 'true' }
-                # };
+            request-body -> %data (Str() :$email, Str() :$password, Str() :$confirm-password, *%) {
+                %( :%data )
+                    ==> validate(
+                            { Email::Valid.new(:simple).validate($^email) }, 
+                            :key<email>, 
+                            :error-message('Invalid email format')
+                        )
+                    ==> validate(
+                            { !User.^load(:email($^email)) }, 
+                            :key<email>, 
+                            :error-message('Email already taken'),
+                            :success-message('Email looks good!')
+                        )
+                    ==> my %form-data;
                 
-                # %validation<email> ||= %{ message => 'Looks good!', invalid => 'false' };
+                if $password ne '' {
+                     %form-data = validate(
+                        { $^password.chars >= 8 },
+                        %form-data,
+                        :key<password>,
+                        :error-message('Password must be longer than 8 characters'),
+                        :success-message('Password is good to go!')
+                    );
+                }
 
-                # ## validate password
-                # template 'templates/validation-input.crotmp', { :$email, :%validation };
+                if $password ne '' && $confirm-password ne '' {
+                    %form-data = validate(
+                        { $^confirm-password eq $password },
+                        %form-data,
+                        :key<confirm-password>,
+                        :error-message('Password does not match confirmation password'),
+                        :success-message('Passwords match!')
+                    );
+                }
+
+                template 'templates/users/signup_form_response.crotmp', { :%form-data };
             }
         }
 

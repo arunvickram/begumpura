@@ -20,7 +20,8 @@
     "Models::User": "lib/Models/User.rakumod",
     "Routes": "lib/Routes.rakumod",
     "Routes::Post": "lib/Routes/Post.rakumod",
-    "Routes::User": "lib/Routes/User.rakumod"
+    "Routes::User": "lib/Routes/User.rakumod",
+    "Utils": "lib/Utils.rakumod"
   },
   "raku": null,
   "resources": [
