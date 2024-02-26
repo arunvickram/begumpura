@@ -5,7 +5,7 @@ use Models::User;
 use Models::Post;
 use Routes;
 
-red-defaults default => database("SQLite", :database<test.sqlite>);
+red-defaults default => database("SQLite", :database<tmp/test.sqlite>);
 # red-defaults default => database("Pg", :host<localhost>, :database<begumpura_db>)
 
 User.^create-table:        :if-not-exists;

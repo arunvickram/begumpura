@@ -26,7 +26,7 @@ sub user-routes() is export {
                             :error-message('Invalid email format')
                         )
                     ==> validate(
-                            { !User.^load(:email($^email)) }, 
+                            { !User.^load(:$^email) },
                             :key<email>, 
                             :error-message('Email already taken'),
                             :success-message('Email looks good!')

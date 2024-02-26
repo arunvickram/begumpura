@@ -1,7 +1,7 @@
 <:use 'resources/templates/layout.crotmp'>
 
-<|layout('Home')>
+<|layout('About Us')>
   <main>
-    Begumpura, this 
+    Begumpura, this is a wonderful
   </main>
 </|>

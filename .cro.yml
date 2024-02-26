@@ -1,15 +1,15 @@
 ---
-"cro": 1
-"endpoints": 
+cro: 1
+endpoints: 
   - 
     "host-env": "BEGUMPURA_HOST"
     "id": "http"
     "name": "HTTP"
     "port-env": "BEGUMPURA_PORT"
     "protocol": "http"
-"entrypoint": "service.raku"
-"env":  []
-"id": "begumpura"
-"links":  []
-"name": "begumpura"
+entrypoint: service.raku
+env: []
+id: begumpura
+links: []
+name: "begumpura"
 ...
