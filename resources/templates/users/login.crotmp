@@ -1,50 +1,7 @@
 <:use 'resources/templates/layout.crotmp'>
 <:use 'resources/templates/users/login_form.crotmp'>
 
-<|layout('Login')>
-    <!--<main>
-    <form 
-      action="/users/login"
-      method="post"
-    >
-      <h1>Log In</h1>
-      
-      <fieldset>
-        <label>
-          Email
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Email" 
-            aria-label="Email" 
-            <?.invalid>
-              aria-invalid="true"
-              aria-describedby="invalid-info"
-            </?>
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password" 
-            name="password" 
-            placeholder="Password" 
-            aria-label="Password" 
-            <?.invalid>
-              aria-invalid="true"
-              aria-describedby="invalid-info"
-            </?>
-          />
-
-          <?.invalid small id="invalid-info">
-            Invalid information
-          </?>
-        </label>
-      </fieldset>
-
-      <button type="submit">Login</button>
-    </form>
-  </main>-->
+<|layout('Login to your account')>
   <section class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div

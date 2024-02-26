@@ -1,7 +1,7 @@
 <:use 'resources/templates/layout.crotmp'>
 <:use 'resources/templates/components/carousel.crotmp'>
 
-<|layout('Home 2')>
+<|layout('Home')>
   <main class="space-y-4 my-5">
     <&carousel(.posts)>
   </main>

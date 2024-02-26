@@ -20,7 +20,7 @@
       <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
       <title><$title></title>
     </head>
-    <body>
+    <body hx-boost="true">
       <&navbar>
       <:body>
     </body>
