@@ -12,4 +12,6 @@ env: []
 id: begumpura
 links: []
 name: "begumpura"
+ignore:
+  - "node_modules/"
 ...

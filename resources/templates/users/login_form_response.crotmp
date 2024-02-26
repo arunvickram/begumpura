@@ -1,2 +1,0 @@
-<:use 'resources/templates/users/login_form.crotmp'>
-<&login-form>

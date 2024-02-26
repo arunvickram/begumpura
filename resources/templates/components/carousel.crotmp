@@ -5,7 +5,7 @@
       <@$posts div class="hidden duration-700 ease-in-out" data-carousel-item>
         <a href="<.link>">
           <img src="<.image>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="<.title>" />
-          <article class="absolute font-sans flex flex-col gap-y-2 px-8 py-4 bottom-0 backdrop-blur-sm bg-black/50 h-32 w-full">
+          <article class="absolute font-text flex flex-col gap-y-2 px-8 py-4 bottom-0 backdrop-blur-sm bg-black/50 h-32 w-full">
             <h1 class="text-3xl font-bold"><.title></h1>
             <p><.deck></p>
           </article>

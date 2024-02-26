@@ -1,7 +1,7 @@
 <:use 'resources/templates/layout.crotmp'>
-<:use 'resources/templates/users/signup_form.crotmp'>
+<:use 'resources/templates/users/login/_form.crotmp'>
 
-<|layout('Sign up for a new account')>
+<|layout('Login to your account')>
   <section class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div
@@ -9,9 +9,9 @@
       >
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Create an account
+            Sign in to your account
           </h1>
-          <&signup-form(.form-data)>
+          <&login-form>
         </div>
       </div>
     </div>

@@ -10,11 +10,11 @@ use Utils;
 sub user-routes() is export {
     route {
         get -> 'register' {
-            template 'templates/users/signup.crotmp', { form-data => %() };
+            template 'templates/users/signup/index.crotmp', { form-data => %() };
         }
 
         get -> 'login' {
-            template 'templates/users/login.crotmp';
+            template 'templates/users/login/index.crotmp';
         }
 
         post -> 'register' {
@@ -60,7 +60,7 @@ sub user-routes() is export {
                     header 'HX-Location', '/users/login';
                     created '/users/login';
                 } else {
-                    template 'templates/users/signup_form_response.crotmp', { :%form-data };
+                    template 'templates/users/signup/_form_response.crotmp', { :%form-data };
                 }
             }
         }
@@ -76,7 +76,7 @@ sub user-routes() is export {
                         
                         header 'HX-Location', '/';
                     } else {
-                        template 'templates/users/login.crotmp', { :invalid(True) }
+                        template 'templates/users/login/index.crotmp', { :invalid(True) }
                     }
                 }
             }

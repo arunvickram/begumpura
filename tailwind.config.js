@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        brand: "'Kuficality'"
+        brand: "'Kuficality'",
+        text: "'Martian Mono'"
       }
     },
   },
