@@ -2036,6 +2036,22 @@ input:checked + .toggle-bg {
   text-decoration-line: underline;
 }
 
+.hover\:decoration-8:hover {
+  text-decoration-thickness: 8px;
+}
+
+.hover\:decoration-4:hover {
+  text-decoration-thickness: 4px;
+}
+
+.hover\:decoration-2:hover {
+  text-decoration-thickness: 2px;
+}
+
+.hover\:underline-offset-4:hover {
+  text-underline-offset: 4px;
+}
+
 .focus\:border-violet-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(139 92 246 / var(--tw-border-opacity));

@@ -30,16 +30,16 @@
           <div class="flex items-center justify-center">
               <ul class="flex flex-row font-text font-medium mt-0 space-x-10 rtl:space-x-reverse text-sm">
                   <li>
-                      <a href="#" class="text-white hover:underline" aria-current="page">Home</a>
+                      <a href="#" class="text-white hover:underline hover:underline-offset-3 hover:decoration-2" aria-current="page">Home</a>
                   </li>
                   <li>
-                      <a href="#" class="text-white hover:underline">Company</a>
+                      <a href="#" class="text-white hover:underline hover:underline-offset-3 hover:decoration-2">Company</a>
                   </li>
                   <li>
-                      <a href="#" class="text-white hover:underline">Team</a>
+                      <a href="#" class="text-white hover:underline hover:underline-offset-3 hover:decoration-2">Team</a>
                   </li>
                   <li>
-                      <a href="#" class="text-white hover:underline">Features</a>
+                      <a href="#" class="text-white hover:underline hover:underline-offset-3 hover:decoration-2">Features</a>
                   </li>
               </ul>
           </div>
