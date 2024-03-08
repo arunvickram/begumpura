@@ -1,20 +1,22 @@
 {
-  "auth": "Write me!",
+  "name": "Routes",
+  "description": "Write me!",
+  "version": "0.0.1",
+  "meta-version": "0",
   "authors": [
     ""
   ],
-  "build-depends": [
-  ],
+  "auth": "Write me!",
   "depends": [
     "Cro::HTTP",
     "Cro::WebApp",
     "Red",
-    "Crypt::Argon2"
+    "Crypt::Argon2",
+    "Email::Valid",
+    "Cro::HTTP::Session::Red"
   ],
-  "description": "Write me!",
-  "license": "Write me!",
-  "meta-version": "0",
-  "name": "Routes",
+  "build-depends": [],
+  "test-depends": [],
   "provides": {
     "Models::Post": "lib/Models/Post.rakumod",
     "Models::User": "lib/Models/User.rakumod",
@@ -23,20 +25,19 @@
     "Routes::User": "lib/Routes/User.rakumod",
     "Utils": "lib/Utils.rakumod"
   },
-  "raku": null,
   "resources": [
     "css/**/*",
     "js/**/*",
-    "templates/**/*"
+    "templates/**/*",
+    "templates/not_found.crotmp"
   ],
-  "source-url": "Write me!",
   "support": {
     "source": "Write me!"
   },
+  "license": "Write me!",
   "tags": [
     ""
   ],
-  "test-depends": [
-  ],
-  "version": "0.0.1"
+  "source-url": "Write me!",
+  "raku": {}
 }

@@ -76,7 +76,7 @@ sub user-routes() is export {
                         
                         header 'HX-Location', '/';
                     } else {
-                        template 'templates/users/login/index.crotmp', { :invalid(True) }
+                        template 'templates/users/login/index.crotmp', { :invalid }
                     }
                 }
             }

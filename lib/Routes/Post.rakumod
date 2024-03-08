@@ -13,7 +13,7 @@ sub post-routes() is export {
             template 'templates/posts/all-posts.crotmp', { :@posts };
         }
 
-        # get -> EditerSession $session (User $user), 'new' {
+        # get -> EditorSession $session (User $user), 'new' {
         #     template 'templates/new-post.crotmp';
         # }
 
